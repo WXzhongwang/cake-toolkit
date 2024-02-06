@@ -10,7 +10,7 @@ import java.util.Map;
  * @author zhongwang
  * @date 2024/2/2
  * @slogan Why Not
- * @email zhongshengwang.zsw@alibaba-inc.com
+ * @email 18668485565@163.com
  */
 public class KitConfig {
 
