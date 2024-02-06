@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SmartFoxWorkToolsProjectState">
+    <option name="branch" value="master" />
+    <option name="gitUrl" value="git@gitlab.alibaba-inc.com:zhongshengwang.zsw/cake-toolkit.git" />
+    <option name="localBranch" value="master" />
+    <option name="revision" value="7c2e87f62c058286dda53a0be4f1943718ad9285" />
+  </component>
+</project>
