@@ -1,8 +1,9 @@
 package com.rany.cake.toolkit.mock.name;
 
-import com.orion.lang.utils.Arrays1;
-import com.orion.lang.utils.Strings;
-import com.orion.lang.utils.random.Randoms;
+
+import com.rany.cake.toolkit.lang.random.Randoms;
+import com.rany.cake.toolkit.lang.utils.Arrays1;
+import com.rany.cake.toolkit.lang.utils.Strings;
 
 /**
  * 英文名称生成器
