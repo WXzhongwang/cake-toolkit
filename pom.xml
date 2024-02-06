@@ -23,12 +23,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 
-        <lang.version>1.0.0-SNAPSHOT</lang.version>
-        <mock.version>1.0.0-SNAPSHOT</mock.version>
-        <ext.version>1.0.0-SNAPSHOT</ext.version>
-        <http.version>1.0.0-SNAPSHOT</http.version>
-        <net.version>1.0.0-SNAPSHOT</net.version>
-        <redis.version>1.0.0-SNAPSHOT</redis.version>
+        <lang.version>1.0.0</lang.version>
+        <mock.version>1.0.0</mock.version>
+        <ext.version>1.0.0</ext.version>
+        <http.version>1.0.0</http.version>
+        <net.version>1.0.0</net.version>
+        <redis.version>1.0.0</redis.version>
 
 
         <jackson.version>2.10.2</jackson.version>
