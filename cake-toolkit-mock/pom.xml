@@ -9,12 +9,21 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>cake-toolkit-http</artifactId>
+    <artifactId>cake-toolkit-mock</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <!-- lang -->
+        <dependency>
+            <groupId>com.rany.cake.toolkit</groupId>
+            <artifactId>cake-toolkit-lang</artifactId>
+            <version>${lang.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -6,7 +6,7 @@
 
     <groupId>com.rany.cake.toolkit</groupId>
     <artifactId>cake-toolkit</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <modules>
         <module>cake-toolkit-lang</module>
@@ -14,12 +14,22 @@
         <module>cake-toolkit-redis</module>
         <module>cake-toolkit-ext</module>
         <module>cake-toolkit-http</module>
+        <module>cake-toolkit-mock</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+
+        <lang.version>1.0.0-SNAPSHOT</lang.version>
+        <mock.version>1.0.0-SNAPSHOT</mock.version>
+        <ext.version>1.0.0-SNAPSHOT</ext.version>
+        <http.version>1.0.0-SNAPSHOT</http.version>
+        <net.version>1.0.0-SNAPSHOT</net.version>
+        <redis.version>1.0.0-SNAPSHOT</redis.version>
+
 
         <jackson.version>2.10.2</jackson.version>
         <fastjson.version>1.2.83</fastjson.version>
@@ -33,6 +43,72 @@
         <google.zxing.version>3.3.3</google.zxing.version>
         <dom4j.version>1.6.1</dom4j.version>
         <jpython.version>2.7.2</jpython.version>
+        <yaml.version>1.30</yaml.version>
+        <emoji.version>5.1.1</emoji.version>
     </properties>
 
+
+    <!-- license -->
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://github.com/WXzhongwang/cake-toolkit/blob/main/LICENSE</url>
+        </license>
+    </licenses>
+
+    <!-- scm -->
+    <scm>
+        <connection>scm:git:git@github.com:WXzhongwang/cake-toolkit.git</connection>
+        <developerConnection>scm:git:git@github.com:WXzhongwang/cake-toolkit.git</developerConnection>
+        <url>git@github.com:WXzhongwang/cake-toolkit.git</url>
+    </scm>
+
+    <!-- issue -->
+    <issueManagement>
+        <system>Github Issue</system>
+        <url>https://github.com/WXzhongwang/cake-toolkit/issues</url>
+    </issueManagement>
+
+    <!-- developers -->
+    <developers>
+        <developer>
+            <name>WXzhongwang</name>
+            <email>18668485565@163.com</email>
+            <timezone>+8</timezone>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <!-- 源码插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>oss</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- 编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
