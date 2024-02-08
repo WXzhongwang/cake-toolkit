@@ -45,6 +45,11 @@
         <jpython.version>2.7.2</jpython.version>
         <yaml.version>1.30</yaml.version>
         <emoji.version>5.1.1</emoji.version>
+        <okhttp.version>3.14.6</okhttp.version>
+        <http.client.version>4.5.13</http.client.version>
+        <ua.utils.version>1.21</ua.utils.version>
+        <jsoup.version>1.14.2</jsoup.version>
+        <slf4j.version>1.7.22</slf4j.version>
     </properties>
 
 
