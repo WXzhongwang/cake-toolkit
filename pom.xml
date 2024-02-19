@@ -50,6 +50,8 @@
         <ua.utils.version>1.21</ua.utils.version>
         <jsoup.version>1.14.2</jsoup.version>
         <slf4j.version>1.7.22</slf4j.version>
+        <jedis.version>3.2.0</jedis.version>
+        <redisson.version>3.16.1</redisson.version>
     </properties>
 
 
