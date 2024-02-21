@@ -1,4 +1,4 @@
-package com.rany.cake.toolkit.lang.process;
+package com.rany.cake.toolkit.lang.progress;
 
 import java.util.concurrent.atomic.AtomicLong;
 
