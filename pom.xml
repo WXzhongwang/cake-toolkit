@@ -15,6 +15,7 @@
         <module>cake-toolkit-ext</module>
         <module>cake-toolkit-http</module>
         <module>cake-toolkit-mock</module>
+        <module>cake-toolkit-all</module>
     </modules>
 
     <properties>
