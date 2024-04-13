@@ -27,7 +27,7 @@ public class WrapperAdapter {
 
     private static final String[] DEFAULT_MSG = {"msg", "message"};
 
-    private static final String[] DEFAULT_DATA = {"data", "res", "result"};
+    private static final String[] DEFAULT_DATA = {"content", "data", "res", "result"};
 
     /**
      * 转Wrapper
@@ -92,7 +92,7 @@ public class WrapperAdapter {
                 break;
             }
         }
-        int code = codeAdapter(codeArr);
+        String code = codeArr[0];
 
         // 解析msg
         String[] msgArr = new String[DEFAULT_MSG.length];

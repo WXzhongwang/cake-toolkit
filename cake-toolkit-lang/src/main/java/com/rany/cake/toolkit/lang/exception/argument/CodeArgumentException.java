@@ -10,47 +10,42 @@ package com.rany.cake.toolkit.lang.exception.argument;
  */
 public class CodeArgumentException extends InvalidArgumentException {
 
-    private int code;
+    private String code;
 
     public CodeArgumentException() {
     }
 
-    public CodeArgumentException(String message) {
-        super(message);
-    }
-
-    public CodeArgumentException(String message, Throwable cause) {
-        super(message, cause);
-    }
 
     public CodeArgumentException(Throwable cause) {
         super(cause);
     }
 
-    public CodeArgumentException(int code) {
+    public CodeArgumentException(String code) {
         this.code = code;
     }
 
-    public CodeArgumentException(int code, String message) {
+    public CodeArgumentException(String code, String message) {
         super(message);
         this.code = code;
     }
 
-    public CodeArgumentException(int code, String message, Throwable cause) {
-        super(message, cause);
-        this.code = code;
-    }
-
-    public CodeArgumentException(int code, Throwable cause) {
+    public CodeArgumentException(String code, Throwable cause) {
         super(cause);
         this.code = code;
     }
 
-    public int getCode() {
+
+    public CodeArgumentException(String code, String message, Throwable cause) {
+        super(message, cause);
+        this.code = code;
+    }
+
+
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

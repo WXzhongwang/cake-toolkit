@@ -25,11 +25,11 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
 
     private static final long serialVersionUID = 7940497300629314L;
 
-    public static final Integer RPC_SUCCESS_CODE = KitConfig.get(KitLangConfiguration.CONFIG.RPC_SUCCESS_CODE);
+    public static final String RPC_SUCCESS_CODE = KitConfig.get(KitLangConfiguration.CONFIG.RPC_SUCCESS_CODE);
 
     public static final String RPC_SUCCESS_MESSAGE = KitConfig.get(KitLangConfiguration.CONFIG.RPC_SUCCESS_MESSAGE);
 
-    public static final Integer RPC_ERROR_CODE = KitConfig.get(KitLangConfiguration.CONFIG.RPC_ERROR_CODE);
+    public static final String RPC_ERROR_CODE = KitConfig.get(KitLangConfiguration.CONFIG.RPC_ERROR_CODE);
 
     public static final String RPC_ERROR_MESSAGE = KitConfig.get(KitLangConfiguration.CONFIG.RPC_ERROR_MESSAGE);
 
@@ -39,7 +39,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
      * 状态码
      */
     @JSONField(ordinal = 0)
-    private int code;
+    private String code;
 
     /**
      * 信息对象
@@ -51,7 +51,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
      * 结果对象
      */
     @JSONField(ordinal = 4)
-    private T data;
+    private T content;
 
     /**
      * 错误信息
@@ -69,18 +69,18 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         this(RPC_SUCCESS_CODE, RPC_SUCCESS_MESSAGE, null);
     }
 
-    public RpcWrapper(int code) {
+    public RpcWrapper(String code) {
         this(code, RPC_SUCCESS_MESSAGE, null);
     }
 
-    public RpcWrapper(int code, String msg) {
+    public RpcWrapper(String code, String msg) {
         this(code, msg, null);
     }
 
-    public RpcWrapper(int code, String msg, T data) {
+    public RpcWrapper(String code, String msg, T content) {
         this.code = code;
         this.msg = msg;
-        this.data = data;
+        this.content = content;
         this.traceId = this.createTrace();
     }
 
@@ -88,8 +88,8 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         this(info.code(), info.message(), null);
     }
 
-    public RpcWrapper(CodeInfo info, T data) {
-        this(info.code(), info.message(), data);
+    public RpcWrapper(CodeInfo info, T content) {
+        this(info.code(), info.message(), content);
     }
 
     /**
@@ -110,11 +110,11 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         return new RpcWrapper<>(info.code(), info.message(), data);
     }
 
-    public static <T> RpcWrapper<T> of(int code) {
+    public static <T> RpcWrapper<T> of(String code) {
         return new RpcWrapper<>(code);
     }
 
-    public static <T> RpcWrapper<T> of(int code, String msg, T data) {
+    public static <T> RpcWrapper<T> of(String code, String msg, T data) {
         return new RpcWrapper<>(code, msg, data);
     }
 
@@ -136,23 +136,19 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         return new RpcWrapper<>(RPC_ERROR_CODE, RPC_ERROR_MESSAGE);
     }
 
-    public static <T> RpcWrapper<T> error(int code) {
+    public static <T> RpcWrapper<T> error(String code) {
         return new RpcWrapper<>(code, RPC_ERROR_MESSAGE);
-    }
-
-    public static <T> RpcWrapper<T> error(String msg) {
-        return new RpcWrapper<>(RPC_ERROR_CODE, msg);
     }
 
     public static <T> RpcWrapper<T> error(String msg, Object... params) {
         return new RpcWrapper<>(RPC_ERROR_CODE, Strings.format(msg, params));
     }
 
-    public static <T> RpcWrapper<T> error(int code, String msg) {
+    public static <T> RpcWrapper<T> error(String code, String msg) {
         return new RpcWrapper<>(code, msg);
     }
 
-    public static <T> RpcWrapper<T> error(int code, String msg, Object... params) {
+    public static <T> RpcWrapper<T> error(String code, String msg, Object... params) {
         return new RpcWrapper<>(code, Strings.format(msg, params));
     }
 
@@ -160,7 +156,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         return new RpcWrapper<>(RPC_ERROR_CODE, t.getMessage());
     }
 
-    public static <T> RpcWrapper<T> error(int code, Throwable t) {
+    public static <T> RpcWrapper<T> error(String code, Throwable t) {
         return new RpcWrapper<>(code, t.getMessage());
     }
 
@@ -207,7 +203,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         return this;
     }
 
-    public RpcWrapper<T> code(int code) {
+    public RpcWrapper<T> code(String code) {
         this.code = code;
         return this;
     }
@@ -218,7 +214,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
     }
 
     public RpcWrapper<T> data(T data) {
-        this.data = data;
+        this.content = data;
         return this;
     }
 
@@ -227,7 +223,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         return this;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -235,8 +231,8 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         this.msg = msg;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setContent(T content) {
+        this.content = content;
     }
 
     public void setTraceId(String traceId) {
@@ -247,7 +243,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         this.errorMessages = errorMessages;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -255,8 +251,8 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         return msg;
     }
 
-    public T getData() {
-        return data;
+    public T getContent() {
+        return content;
     }
 
     public String getTraceId() {
@@ -289,7 +285,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
                 .append("\n    traceId ==> ").append(traceId)
                 .append("\n       code ==> ").append(code)
                 .append("\n        msg ==> ").append(msg)
-                .append("\n       data ==> ").append(Jsons.toJsonWriteNull(data));
+                .append("\n       content ==> ").append(Jsons.toJsonWriteNull(content));
         if (!success) {
             builder.append("\n   errorMsg ==> ").append(errorMessages);
         }
@@ -301,7 +297,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
         Map<String, Object> map = new HashMap<>(Const.CAPACITY_8);
         map.put("code", code);
         map.put("msg", msg);
-        map.put("data", data);
+        map.put("content", content);
         map.put("traceId", traceId);
         map.put("errorMessages", errorMessages);
         return map;
@@ -311,7 +307,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
      * @return {@link HttpWrapper}
      */
     public HttpWrapper<T> toHttpWrapper() {
-        return HttpWrapper.of(code, msg, data);
+        return HttpWrapper.of(code, msg, content);
     }
 
     /**
@@ -320,7 +316,7 @@ public class RpcWrapper<T> extends CloneSupport<RpcWrapper<T>> implements Wrappe
     public Optional<T> optional() {
         return Optional.of(this)
                 .filter(RpcWrapper::isSuccess)
-                .map(RpcWrapper::getData);
+                .map(RpcWrapper::getContent);
     }
 
 }

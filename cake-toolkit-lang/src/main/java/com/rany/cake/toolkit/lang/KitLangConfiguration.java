@@ -121,17 +121,17 @@ public final class KitLangConfiguration {
 
     // http wrapper
     static {
-        KitConfig.init(CONFIG.HTTP_OK_CODE, 200);
+        KitConfig.init(CONFIG.HTTP_OK_CODE, "200");
         KitConfig.init(CONFIG.HTTP_OK_MESSAGE, "success");
-        KitConfig.init(CONFIG.HTTP_ERROR_CODE, 500);
+        KitConfig.init(CONFIG.HTTP_ERROR_CODE, "500");
         KitConfig.init(CONFIG.HTTP_ERROR_MESSAGE, "error");
     }
 
     // rpc wrapper
     static {
-        KitConfig.init(CONFIG.RPC_SUCCESS_CODE, 2000);
+        KitConfig.init(CONFIG.RPC_SUCCESS_CODE, "2000");
         KitConfig.init(CONFIG.RPC_SUCCESS_MESSAGE, "success");
-        KitConfig.init(CONFIG.RPC_ERROR_CODE, 5000);
+        KitConfig.init(CONFIG.RPC_ERROR_CODE, "5000");
         KitConfig.init(CONFIG.RPC_ERROR_MESSAGE, "error");
         KitConfig.init(CONFIG.PRC_TRACE_PREFIX, "TRACE-");
     }

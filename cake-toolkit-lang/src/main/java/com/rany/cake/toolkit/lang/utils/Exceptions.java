@@ -914,27 +914,19 @@ public class Exceptions {
         return new CodeArgumentException(t);
     }
 
-    public static CodeArgumentException codeArgument(String s) {
-        return new CodeArgumentException(s);
-    }
-
-    public static CodeArgumentException codeArgument(String s, Throwable t) {
-        return new CodeArgumentException(s, t);
-    }
-
-    public static CodeArgumentException codeArgument(int code) {
+    public static CodeArgumentException codeArgument(String code) {
         return new CodeArgumentException(code);
     }
 
-    public static CodeArgumentException codeArgument(int code, Throwable t) {
+    public static CodeArgumentException codeArgument(String code, Throwable t) {
         return new CodeArgumentException(code, t);
     }
 
-    public static CodeArgumentException codeArgument(int code, String s) {
+    public static CodeArgumentException codeArgument(String code, String s) {
         return new CodeArgumentException(code, s);
     }
 
-    public static CodeArgumentException codeArgument(int code, String s, Throwable t) {
+    public static CodeArgumentException codeArgument(String code, String s, Throwable t) {
         return new CodeArgumentException(code, s, t);
     }
 

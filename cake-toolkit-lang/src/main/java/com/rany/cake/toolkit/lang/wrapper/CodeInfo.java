@@ -19,7 +19,7 @@ public interface CodeInfo extends Serializable {
      *
      * @return code
      */
-    int code();
+    String code();
 
     /**
      * 获取message

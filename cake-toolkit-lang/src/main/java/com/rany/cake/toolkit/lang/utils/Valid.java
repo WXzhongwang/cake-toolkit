@@ -672,13 +672,13 @@ public abstract class Valid {
     public static <T> T validWrapper(HttpWrapper<T> wrapper) {
         notNull(wrapper);
         isTrue(wrapper.isOk(), HTTP_WRAPPER_NOT_OK, wrapper.getCode(), wrapper.getMsg());
-        return wrapper.getData();
+        return wrapper.getContent();
     }
 
     public static <T> T validWrapper(RpcWrapper<T> wrapper) {
         notNull(wrapper);
         isTrue(wrapper.isSuccess(), RPC_WRAPPER_NOT_SUCCESS, wrapper.getCode(), wrapper.getMsg());
-        return wrapper.getData();
+        return wrapper.getContent();
     }
 
     public static <T extends IHttpResponse> T validHttpOk(T resp) {

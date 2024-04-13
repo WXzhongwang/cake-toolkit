@@ -27,11 +27,11 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
 
     // -------------------- HTTP --------------------
 
-    public static final Integer HTTP_OK_CODE = KitConfig.get(KitLangConfiguration.CONFIG.HTTP_OK_CODE);
+    public static final String HTTP_OK_CODE = KitConfig.get(KitLangConfiguration.CONFIG.HTTP_OK_CODE);
 
     public static final String HTTP_OK_MESSAGE = KitConfig.get(KitLangConfiguration.CONFIG.HTTP_OK_MESSAGE);
 
-    public static final Integer HTTP_ERROR_CODE = KitConfig.get(KitLangConfiguration.CONFIG.HTTP_ERROR_CODE);
+    public static final String HTTP_ERROR_CODE = KitConfig.get(KitLangConfiguration.CONFIG.HTTP_ERROR_CODE);
 
     public static final String HTTP_ERROR_MESSAGE = KitConfig.get(KitLangConfiguration.CONFIG.HTTP_ERROR_MESSAGE);
 
@@ -39,7 +39,7 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
      * 状态码
      */
     @JSONField(ordinal = 0)
-    private int code;
+    private String code;
 
     /**
      * 信息对象
@@ -51,32 +51,32 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
      * 结果对象
      */
     @JSONField(ordinal = 2)
-    private T data;
+    private T content;
 
     public HttpWrapper() {
         this(HTTP_OK_CODE, HTTP_OK_MESSAGE, null);
     }
 
-    public HttpWrapper(int code) {
+    public HttpWrapper(String code) {
         this(code, HTTP_OK_MESSAGE, null);
     }
 
-    public HttpWrapper(int code, String msg) {
+    public HttpWrapper(String code, String msg) {
         this(code, msg, null);
     }
 
-    public HttpWrapper(int code, String msg, T data) {
+    public HttpWrapper(String code, String msg, T content) {
         this.code = code;
         this.msg = msg;
-        this.data = data;
+        this.content = content;
     }
 
     public HttpWrapper(CodeInfo info) {
         this(info.code(), info.message(), null);
     }
 
-    public HttpWrapper(CodeInfo info, T data) {
-        this(info.code(), info.message(), data);
+    public HttpWrapper(CodeInfo info, T content) {
+        this(info.code(), info.message(), content);
     }
 
     /**
@@ -97,11 +97,11 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
         return new HttpWrapper<>(info.code(), info.message(), data);
     }
 
-    public static <T> HttpWrapper<T> of(int code, String msg) {
+    public static <T> HttpWrapper<T> of(String code, String msg) {
         return new HttpWrapper<>(code, msg);
     }
 
-    public static <T> HttpWrapper<T> of(int code, String msg, T data) {
+    public static <T> HttpWrapper<T> of(String code, String msg, T data) {
         return new HttpWrapper<>(code, msg, data);
     }
 
@@ -123,23 +123,19 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
         return new HttpWrapper<>(HTTP_ERROR_CODE, HTTP_ERROR_MESSAGE);
     }
 
-    public static <T> HttpWrapper<T> error(int code) {
+    public static <T> HttpWrapper<T> error(String code) {
         return new HttpWrapper<>(code, HTTP_ERROR_MESSAGE);
-    }
-
-    public static <T> HttpWrapper<T> error(String msg) {
-        return new HttpWrapper<>(HTTP_ERROR_CODE, msg);
     }
 
     public static <T> HttpWrapper<T> error(String msg, Object... params) {
         return new HttpWrapper<>(HTTP_ERROR_CODE, Strings.format(msg, params));
     }
 
-    public static <T> HttpWrapper<T> error(int code, String msg) {
+    public static <T> HttpWrapper<T> error(String code, String msg) {
         return new HttpWrapper<>(code, msg);
     }
 
-    public static <T> HttpWrapper<T> error(int code, String msg, Object... params) {
+    public static <T> HttpWrapper<T> error(String code, String msg, Object... params) {
         return new HttpWrapper<>(code, Strings.format(msg, params));
     }
 
@@ -147,11 +143,11 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
         return new HttpWrapper<>(HTTP_ERROR_CODE, t.getMessage());
     }
 
-    public static <T> HttpWrapper<T> error(int code, Throwable t) {
+    public static <T> HttpWrapper<T> error(String code, Throwable t) {
         return new HttpWrapper<>(code, t.getMessage());
     }
 
-    public HttpWrapper<T> code(int code) {
+    public HttpWrapper<T> code(String code) {
         this.code = code;
         return this;
     }
@@ -162,11 +158,11 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
     }
 
     public HttpWrapper<T> data(T data) {
-        this.data = data;
+        this.content = data;
         return this;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -174,11 +170,11 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
         this.msg = msg;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setContent(T content) {
+        this.content = content;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -186,8 +182,8 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
         return msg;
     }
 
-    public T getData() {
-        return data;
+    public T getContent() {
+        return content;
     }
 
     /**
@@ -210,7 +206,7 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
         return "HttpWrapper:" +
                 "\n  code ==> " + code +
                 "\n   msg ==> " + msg +
-                "\n  data ==> " + Objects1.toString(data);
+                "\n  content ==> " + Objects1.toString(content);
     }
 
     @Override
@@ -218,7 +214,7 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
         Map<String, Object> map = new HashMap<>(Const.CAPACITY_8);
         map.put("code", code);
         map.put("msg", msg);
-        map.put("data", data);
+        map.put("content", content);
         return map;
     }
 
@@ -226,7 +222,7 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
      * @return {@link RpcWrapper}
      */
     public RpcWrapper<T> toRpcWrapper() {
-        return new RpcWrapper<>(code, msg, data);
+        return new RpcWrapper<>(code, msg, content);
     }
 
     /**
@@ -235,7 +231,7 @@ public class HttpWrapper<T> extends CloneSupport<HttpWrapper<T>> implements Wrap
     public Optional<T> optional() {
         return Optional.of(this)
                 .filter(HttpWrapper::isOk)
-                .map(HttpWrapper::getData);
+                .map(HttpWrapper::getContent);
     }
 
 }
