@@ -54,5 +54,11 @@
             <artifactId>cake-toolkit-redis</artifactId>
             <version>${redis.version}</version>
         </dependency>
+        <!-- redis -->
+        <dependency>
+            <groupId>com.rany.cake.toolkit</groupId>
+            <artifactId>cake-toolkit-rule</artifactId>
+            <version>${redis.version}</version>
+        </dependency>
     </dependencies>
 </project>

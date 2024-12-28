@@ -16,6 +16,7 @@
         <module>cake-toolkit-http</module>
         <module>cake-toolkit-mock</module>
         <module>cake-toolkit-all</module>
+        <module>cake-toolkit-rule</module>
     </modules>
 
     <properties>
@@ -60,6 +61,7 @@
         <apache.ftp.server.version>1.1.1</apache.ftp.server.version>
         <ssh2.version>262</ssh2.version>
         <jsch.version>0.2.7</jsch.version>
+        <mvel2.version>2.4.12.Final</mvel2.version>
     </properties>
 
 
