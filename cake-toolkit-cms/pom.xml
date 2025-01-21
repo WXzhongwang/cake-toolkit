@@ -9,7 +9,8 @@
         <version>1.0.2</version>
     </parent>
 
-    <artifactId>cake-toolkit-ext</artifactId>
+    <groupId>com.rany.cake.toolkit.cms</groupId>
+    <artifactId>cake-toolkit-cms</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -18,22 +19,22 @@
     </properties>
 
     <dependencies>
-        <!-- mail -->
         <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>${mail.version}</version>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>2.10.4</version>
         </dependency>
+
         <dependency>
-            <groupId>com.rany.cake.toolkit</groupId>
-            <artifactId>cake-toolkit-lang</artifactId>
-            <version>${lang.version}</version>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
         </dependency>
+
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
         </dependency>
     </dependencies>
 </project>

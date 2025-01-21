@@ -6,7 +6,7 @@
 
     <groupId>com.rany.cake.toolkit</groupId>
     <artifactId>cake-toolkit</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>pom</packaging>
     <modules>
         <module>cake-toolkit-lang</module>
@@ -17,6 +17,7 @@
         <module>cake-toolkit-mock</module>
         <module>cake-toolkit-all</module>
         <module>cake-toolkit-rule</module>
+        <module>cake-toolkit-cms</module>
     </modules>
 
     <properties>
@@ -25,12 +26,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 
-        <lang.version>1.0.0</lang.version>
-        <mock.version>1.0.0</mock.version>
-        <ext.version>1.0.0</ext.version>
-        <http.version>1.0.0</http.version>
-        <net.version>1.0.0</net.version>
-        <redis.version>1.0.0</redis.version>
+        <lang.version>1.0.2</lang.version>
+        <cms.version>1.0.2</cms.version>
+        <mock.version>1.0.2</mock.version>
+        <ext.version>1.0.2</ext.version>
+        <http.version>1.0.2</http.version>
+        <net.version>1.0.2</net.version>
+        <redis.version>1.0.2</redis.version>
+        <rule.version>1.0.2</rule.version>
 
 
         <jackson.version>2.10.2</jackson.version>
