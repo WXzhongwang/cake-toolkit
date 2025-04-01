@@ -6,10 +6,9 @@
     <parent>
         <groupId>com.rany.cake.toolkit</groupId>
         <artifactId>cake-toolkit</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </parent>
 
-    <groupId>com.rany.cake.toolkit.cms</groupId>
     <artifactId>cake-toolkit-cms</artifactId>
 
     <properties>

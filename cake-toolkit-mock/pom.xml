@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.rany.cake.toolkit</groupId>
         <artifactId>cake-toolkit</artifactId>
-        <version>1.0.2</version>
+        <version>1.0.3</version>
     </parent>
 
     <artifactId>cake-toolkit-mock</artifactId>

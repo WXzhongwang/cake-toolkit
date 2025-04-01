@@ -445,6 +445,20 @@ public class Lists extends Collections {
         sets(list, i, e, false);
     }
 
+    public static <T> List<T> setOrAppend(List<T> list, int index, T element) {
+        // Assert.notNull(list, "List must be not null !", new Object[0]);
+        if (list == null) {
+            throw Exceptions.nullPoint("List must be not null !");
+        }
+        if (index < list.size()) {
+            list.set(index, element);
+        } else {
+            list.add(element);
+        }
+
+        return list;
+    }
+
     public static <E> E getSet(List<E> list, int i, E e) {
         return sets(list, i, e, true);
     }
