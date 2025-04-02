@@ -56,4 +56,20 @@ public class Result<T> implements Serializable {
     public static  Result<Boolean> buildSuccessResponse() {
        return SUCCESS;
     }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public int getErrorCode() {
+        return errorCode;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
 }
