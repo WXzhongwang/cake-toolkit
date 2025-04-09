@@ -19,6 +19,7 @@
         <module>cake-toolkit-rule</module>
         <module>cake-toolkit-cms</module>
         <module>cake-toolkit-nebula</module>
+        <module>cake-toolkit-alert</module>
     </modules>
 
     <properties>
@@ -36,6 +37,7 @@
         <redis.version>1.0.3</redis.version>
         <rule.version>1.0.3</rule.version>
         <nebula.version>1.0.3</nebula.version>
+        <alert.version>1.0.3</alert.version>
 
 
         <jackson.version>2.10.2</jackson.version>
